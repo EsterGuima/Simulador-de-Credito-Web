@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Pixelify+Sans:wght@700&display=swap");
+
+
+:root {
+  --roxo: #5b3a8c;
+  --rosa: #ebbedc;
+  --rosa-forte: #e58fb8;
+  --fundo-cartao: #fcf6eb;
+  --verde: #1b7f3b;
+  --vermelho: #b3261e;
+  --texto: #1c1c1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f6cf, #fbd8d2) fixed;
+}
+
+body {
+  margin: 0;
+  font-family: "Oswald", Arial, sans-serif;
+  color: var(--texto);
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 20%, transparent 21%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 20%, transparent 21%);
+  background-size: 40px 40px, 40px 40px;
+  background-position: 0 0, 20px 20px;
+  animation: mover 25s linear infinite;
+}
+
+@keyframes mover {
+  to {
+    background-position: 40px 40px, 60px 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Pixelify Sans", cursive;
+  font-size: 5rem;
+  color: var(--roxo);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow:
+    3px 3px 0 #fff,
+    6px 6px 0 rgba(91, 58, 140, 0.25);
+  animation: pular-texto 1.2s ease-in-out infinite;
+}
+
+@keyframes pular-texto {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+header p {
+  font-size: 25px;
+  margin: 7px 0 0;
+  color: var(--roxo);
+}
+
+.cartao {
+  background: var(--fundo-cartao);
+  padding: 20px;
+  margin: 4px 4px 24px;
+  box-shadow:
+    0 -4px 0 0 var(--rosa-forte),
+    0 4px 0 0 var(--rosa-forte),
+    -4px 0 0 0 var(--rosa-forte),
+    4px 0 0 0 var(--rosa-forte);
+  animation: aparecer 0.6s ease both;
+}
+
+.cartao h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--roxo);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+label {
+  display: block;
+  margin: 14px 0 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--roxo);
+  text-transform: uppercase;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--roxo);
+  border-radius: 0;
+  background: #fff;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 3px solid var(--rosa-forte);
+  border-color: var(--roxo);
+}
+
+button {
+  width: calc(100% - 8px);
+  margin: 22px 4px 4px;
+  padding: 12px;
+  border: none;
+  border-radius: 0;
+  background: #fde3ee;
+  color: var(--roxo);
+  font-family: "Pixelify Sans", cursive;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    0 -4px 0 0 var(--rosa-forte),
+    0 4px 0 0 var(--rosa-forte),
+    -4px 0 0 0 var(--rosa-forte),
+    4px 0 0 0 var(--rosa-forte);
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--rosa-forte);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.escondido {
+  display: none;
+}
+
+.aprovado {
+  border-left: 6px solid var(--verde);
+}
+
+.aprovado h2 {
+  color: var(--verde);
+}
+
+.reprovado {
+  border-left: 6px solid var(--vermelho);
+}
+
+.reprovado h2 {
+  color: var(--vermelho);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px 0;
+  border-bottom: 2px dashed var(--rosa);
+  font-size: 0.95rem;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li.ok {
+  color: var(--verde);
+}
+
+li.nao {
+  color: var(--vermelho);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--roxo);
+  margin-top: 24px;
+}
+
+footer a {
+  color: var(--rosa-forte);
+}
+
+::selection {
+  background: var(--rosa-forte);
+  color: #fff;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AUTO CARS | Simulador de Crédito</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>AUTO CARS</h1>
+      <p>Simulador de análise de crédito para compra de veículos</p>
+    </header>
+
+    <section class="cartao">
+      <h2>Nova análise</h2>
+      <form id="formulario">
+        <label for="nome">Nome do cliente</label>
+        <input type="text" id="nome" maxlength="49" required>
+
+        <label for="renda">Renda mensal (R$)</label>
+        <input type="number" id="renda" min="0.01" step="0.01" required>
+
+        <label for="modelo">Modelo do veículo</label>
+        <input type="text" id="modelo" maxlength="49" required>
+
+        <label for="preco">Valor do veículo (R$)</label>
+        <input type="number" id="preco" min="0.01" step="0.01" required>
+
+        <button type="submit">Analisar crédito</button>
+      </form>
+    </section>
+
+    <section id="resultado" class="cartao escondido" aria-live="polite">
+      <h2 id="resTitulo"></h2>
+      <p id="resTexto"></p>
+    </section>
+
+    <section class="cartao">
+      <h2>📋 Relatório de análises!</h2>
+      <p id="semAnalises">Nenhuma análise realizada ainda.</p>
+      <ul id="lista"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
